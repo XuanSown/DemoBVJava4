@@ -13,7 +13,7 @@ public class User {
 	private String id;
 	@Column(name = "Password")
 	private String password;
-	@Column(name = "Fullname")
+	@Column(name = "Fullname", columnDefinition = ("nvarchar(50)"))
 	private String fullname;
 	@Column(name = "Email")
 	private String email;
