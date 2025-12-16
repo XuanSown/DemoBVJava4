@@ -16,6 +16,8 @@
 		<div class="container">
 			<div class="d-flex">
 				<!-- đăng nhập -->
+				<span class="navbar-text me-3">Xin chào, ${currentUser.fullname}</span>
+				<a href="${pageContext.request.contextPath }/LoginServlet?action=logout" class="btn btn-outline-light">Logout</a>
 			</div>
 		</div>
 	</nav>
@@ -48,12 +50,12 @@
 					<label>Role</label> <br>
 					<div class="form-check form-check-inline">
 						<input class="form-check-input" type="radio" name="admin"
-							value="true" ${user.admin ? 'checked' : ''}> <label
+							value="false" ${user.admin ? 'checked' : ''}> <label
 							class="form-check-label">Admin</label>
 					</div>
 					<div class="form-check form-check-inline">
 						<input class="form-check-input" type="radio" name="admin"
-							value="false" ${user.admin ? 'checked' : ''}> <label
+							value="false" ${!user.admin ? 'checked' : ''}> <label
 							class="form-check-label">User</label>
 					</div>
 				</div>

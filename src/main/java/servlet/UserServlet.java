@@ -34,7 +34,14 @@ public class UserServlet extends HttpServlet {
 				User user = new User();
 				BeanUtils.populate(user, req.getParameterMap());
 				dao.create(user);
-				req.setAttribute("message", "Thêm thành công!");
+				if (user.getId() == null || user.getId().trim().isEmpty() || user.getPassword() == null
+						|| user.getPassword().trim().isEmpty() || user.getFullname() == null
+						|| user.getFullname().trim().isEmpty() || user.getEmail() == null
+						|| user.getEmail().trim().isEmpty()) {
+					req.setAttribute("message", "Vui lòng nhập đầy đủ thông tin!");
+				} else {
+					req.setAttribute("message", "Thêm thành công!");
+				}
 			} catch (Exception e) {
 				// TODO: handle exception
 				req.setAttribute("message", "Lỗi thêm mới: " + e.getMessage());
@@ -44,7 +51,14 @@ public class UserServlet extends HttpServlet {
 				User user = new User();
 				BeanUtils.populate(user, req.getParameterMap());
 				dao.update(user);
-				req.setAttribute("message", "Cập nhật thành công!");
+				if (user.getId() == null || user.getId().trim().isEmpty() || user.getPassword() == null
+						|| user.getPassword().trim().isEmpty() || user.getFullname() == null
+						|| user.getFullname().trim().isEmpty() || user.getEmail() == null
+						|| user.getEmail().trim().isEmpty()) {
+					req.setAttribute("message", "Vui lòng nhập đầy đủ thông tin!");
+				} else {
+					req.setAttribute("message", "Cập nhật thành công!");
+				}
 			} catch (Exception e) {
 				// TODO: handle exception
 				req.setAttribute("message", "Cập nhật thất bại!: " + e.getMessage());
