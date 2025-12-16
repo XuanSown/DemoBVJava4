@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import entity.User;
 
 public interface UserDAO {
@@ -7,5 +9,11 @@ public interface UserDAO {
 
 	void update(User user);
 
-	void delete(User user);
+	void delete(String id);
+
+	User findById(String id);
+
+	List<User> findAll();
+
+	List<User> findByFullname(String fullname);
 }
